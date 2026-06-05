@@ -11,7 +11,7 @@ Welcome to my SkillRack RHP repository. This repository includes solutions to da
 - Prepare for placements and technical interviews
 
 ### Technologies Used
-- Java
+- Java & CPP
 - Git & GitHub
 
 ### Progress
