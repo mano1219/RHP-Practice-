@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int row, col;
+
+void dfs(char grid[][100], int i, int j)
+{
+    // Check boundary and water
+    if (i < 0 || i >= row || j < 0 || j >= col || grid[i][j] == '0')
+        return;
+
+    // Mark as visited
+    grid[i][j] = '0';
+
+    // Visit all four directions
+    dfs(grid, i + 1, j);
+    dfs(grid, i - 1, j);
+    dfs(grid, i, j + 1);
+    dfs(grid, i, j - 1);
+}
+
+int main()
+{
+    cout << "Enter number of rows and columns: ";
+    cin >> row >> col;
+
+    char grid[100][100];
+
+    cout << "Enter the grid (0 and 1):\n";
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cin >> grid[i][j];
+        }
+    }
+
+    int islands = 0;
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (grid[i][j] == '1')
+            {
+                islands++;
+                dfs(grid, i, j);
+            }
+        }
+    }
+
+    cout << "Number of Islands = " << islands;
+
+    return 0;
+}
